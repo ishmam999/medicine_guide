@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -22,6 +25,15 @@
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
@@ -29,7 +41,7 @@
 <div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
-                <a href="cusprofile.html"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="cupanel.php"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="cushome.php">Home</a></li>
@@ -57,19 +69,16 @@
 				</div>
 			</div>
             
-			<div class="br-bottom row" style="margin-left: 40%;text-align: center">
-                <div class="col-md-4"> 
-					<input type="text" placeholder="search medicine" style="width: 100%;border-radius: 5%">
+			<div class="br-bottom row" style="margin-left: 2%;text-align: center">
+                <div class="col-md-3"> 
+					<input type="text" placeholder="search medicine" style="border-radius: 5%">
                     <br>
                     <br>
                     <button type="submit" class="btn btn-success">Search</button>
 					 
 				</div>
-                <br>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4"> 
+                
+				<div class="col-md-3"> 
 					<h4>Search By Scientific Name: </h4>
 					 <select>
 					  <option value="1">number 1</option>
@@ -78,10 +87,7 @@
 					  <option value="4">number 4</option>
 					</select> 
 				</div>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4"> 
+				<div class="col-md-3"> 
 					<h4>Search By Disease Name: </h4>
 					 <select>
 					  <option value="1">number 1</option>
@@ -90,22 +96,16 @@
 					  <option value="4">number 4</option>
 					</select> 
 				</div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4 src"> 
+               
+				<div class="col-md-3 src"> 
 					<button type="submit" class="btn btn-success">Search</button>
 				</div>
 				
 			</div>
                 </div>
-		</div>
-			
-			
-		
-    <br>
+            
+            
+            <br>
     <br>
     <hr>
     <br>
@@ -120,9 +120,15 @@
 		
 		<br>
 		
-		<button type="submit" class="btn btn-success">Checkout</button>
+<!--		<button type="submit" class="btn btn-success">Checkout</button>-->
+            <a href="cart.php" style="background: #5CB85C;padding: 10px;">Checkout</a>
 		
 		</div>
+		</div>
+			
+			
+		
+    
 		
 <!--
 		<div class="signup col-sm-offset-8 col-md-8"> 

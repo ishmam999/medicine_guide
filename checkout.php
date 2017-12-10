@@ -12,8 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Branches</title>
-    <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
@@ -22,20 +21,31 @@
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
 <body>
-    
 	<div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
-                <a href="adminprofile.html"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
-				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
+				<div class="logo col-md-3"> 
+					<img src="images/logo.png" alt="" />
+				</div>
+				<div class="menu col-md-7"> 
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Cart</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="#">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -46,38 +56,48 @@
 		
 	</div>
 	
-	<div class="main-area"> 
+	<div class="login"> 
+		
+		<h3 class="text-center">Patient's Panel - Checkout</h3>
 		
 		
-		
-		
-		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-            <h2>Admin Panel - Delivery Branch List</h2>        
+		<div class="check"> 
+			<form class="col-md-4 col-sm-offset-4 text-center">
+			  <div class="form-group center">
+				<label for="per">Contact Person:</label>
+				<input type="text" class="form-control" id="per">
+			  </div>
+			  <div class="form-group center">
+				<label for="num">Contact Number:</label>
+				<input type="text" class="form-control" id="num">
+			  </div>
+			  <div class="form-group">
+				<label for="pwd">Region:</label>
+				 <select style="font-size: 18px">
+                  <option value="uttara">Uttara</option>
+                  <option value="banani">Bananu</option>
+                  <option value="gulshan">Gulshan</option>
+                  <option value="khilkhet">Khilkhet</option>
+                </select> 
+			  </div>
+			  <div class="form-group">
+				<label for="add">Address:</label>
+				<input type="text" class="form-control" id="add">
+			  </div>
 			  
-                <br>
-                <br>
-                <label>User Name</label>
-                
-                <br>
-                <br>
-                
-              <!--ekhane table show hobe and kon branch hobe arki-->
 			  
-			  <br>
+<!--			  <button type="submit" class="btn btn-default">Submit</button>-->
+                <a href="cusorderaccept.php" style="background: #5CB85C;padding: 10px;">Checkout</a>
 			</form> 
-			<br>
+			</br>
 			
 		</div>
-		<!--
+		
 		<div class="signup col-sm-offset-8 col-md-8"> 
-			<p>Not a registered user. Please Sign Up...</p>
-			<button type="submit" class="btn btn-success">  </button>
-			<button type="submit" class="btn btn-success"></button>
-			<a href="cussignup.html">As Customer</a>
+			
 			
 		</div>
-		-->
+		
 		
 		
 		

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -21,39 +24,49 @@
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
-<body>
-<!--
+<body class="cus">
+    <!--
 	<div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
 				<div class="logo col-md-5"> 
-					<img src="images/logo.png" alt="" />
+					<img src="img/22.png" alt="" width="65px"/>
 				</div>
-				<div class="menu col-md-5"> 
-					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Cart</a></li>
-						<li><a href="#">Logout</a></li>
-						
-					</ul>
-				</div>
+				
 				
 			</div>
 		</div>
 		
 		
 	</div>
--->
-	
+	-->
 		
 		
 		
 		
 		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
+    
+<!--             <img src="img/drug-icon-2316244_640.png"  height="160" width="160"> <br>-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+			<form class="col-md-4 col-sm-offset-4 text-center" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" style="margin: 2%;background-color: rgba(80, 173, 150, 0.3);border: 1px #e3e8ef;border-radius: 5%; opacity:0.8;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
 			  <div class="form-group center" >
 				<label for="uname" style="font-weight: bold;color: #000000;">Username:</label>
 				<input type="text" class="form-control" id="email" name="uname" style="width:50%;margin-left: 24%;" required>
@@ -78,7 +91,9 @@
 			</form>
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST")
-                {
+                {   
+                    $_SESSION["uname"]= $_POST["uname"];
+                    $_SESSION["upass"]= $_POST["upass"];
                     $username = $_POST["uname"];
                     $password = $_POST["upass"];
                     // Connect to the database
@@ -92,31 +107,31 @@
                         // Select the database to use
                         mysqli_select_db($con,'medicineguide');
 
-                        $result = mysqli_query($con,"SELECT * FROM customerlogin;") or die("Failed to Login".mysql_error());
+                        $result = mysqli_query($con,"SELECT * FROM customerlogin where cuUserName='".$username."' and cuPassword='".$password."';") or die("Failed to Login".mysql_error());
 
                         $row = mysqli_fetch_array($result);
 
                         if($row["cuUserName"]==$username && $row["cuPassword"]==$password)
                         {
-                            header("Location:cushome.html");
+                            header("Location:cushome.php");
                         }
 
                         else
                         {
                             
-                            $result = mysqli_query($con,"SELECT * FROM pharmacylogin;") or die("Failed to Login".mysql_error());
+                            $result = mysqli_query($con,"SELECT * FROM pharmacylogin where phUserName='".$username."' and phPassword='".$password."';") or die("Failed to Login".mysql_error());
                             $row = mysqli_fetch_array($result);
                             if($row["phUserName"]==$username && $row["phPassword"]==$password)
                             {
-                                  header("Location:adod.html");  
+                                  header("Location:pharmaupdate.php");  
                             }
                             else
                             {
-                               $result = mysqli_query($con,"SELECT * FROM admin;") or die("Failed to Login".mysql_error());
+                               $result = mysqli_query($con,"SELECT * FROM admin where aUserName='".$username."' and aPassword='".$password."';") or die("Failed to Login".mysql_error());
                                 $row = mysqli_fetch_array($result);
                                 if($row["aUserName"]==$username && $row["aPassword"]==$password)
                                 {
-                                      header("Location:adaddmed.html");  
+                                      header("Location:adaddmed.php");  
                                 }
                                 else
                                 {
@@ -128,8 +143,11 @@
                         }
                 }
             ?>
+			<br>
 			
-			
+            <div class="bottomimg"> 
+             <img src="img/105569.png"  height="200" width="200">
+            </div>    
 		</div>
 		
 <!--

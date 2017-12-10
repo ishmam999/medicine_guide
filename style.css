@@ -3,7 +3,7 @@
  * Header Area 
  **/
 .header-top{ 
-	background: #e3e8ef;
+	background: rgba(72, 160, 164, 0.3);
 	padding: 1%;
 }
 .menu{
@@ -29,27 +29,49 @@ Main area------>
 */
 
 body { 
+/*
     background-image: url('img/bottle_of_pills.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom right; 
     background-size: 20%;
+*/
     
     
+}
+.bottomimg img{
+    float:right;
+    overflow:hidden;
+    margin-top: 646px;
 }
 
 
 
 .login{
-	padding: 100px 0;
-	//background: #4b3f34;
-	color: black;
+	
+/*	//background: #4b3f34;*/
+	/*color: black;
 	width: 100%;
-    background-image: url('img/drug-icon-2316244_640.png');
+    background: url(images/12.jpg) no-repeat center center fixed; 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top left; 
-    background-size: 13%;
+    background-size: 13%;*/
+    background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
+    
+}
+
+.cus{
+    background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     
     
 }

@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Browse Medicine</title>
+	<title>Home</title>
     <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
@@ -26,15 +26,15 @@
 
 
 <body>
-<div class="header-area"> 
+    <div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
                 <a href="cusprofile.html"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="cushome.php">Home</a></li>
+						<li><a href="#">Home</a></li>
 						<li><a href="#">Cart</a></li>
-						<li><a href="logout.php">Logout</a></li>
+						<li><a href="index.html">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -48,81 +48,41 @@
 		
 		
 		
-		
-		<div class="login"> 
-		<div class="br"> 
-			<div class="br-top text-center"> 
+		<div class="login">
+		<div class="cushome" > 
+		<div class="chome"> 
+			<div class="cus-top text-center"> 
 				<div class="container"> 
-					<h2>Patient's Panel - Browse Medicine</h2>
+					<h2 style="margin-left: 7%">Admin Panel</h2>
 				</div>
 			</div>
-            
-			<div class="br-bottom row" style="margin-left: 40%;text-align: center">
-                <div class="col-md-4"> 
-					<input type="text" placeholder="search medicine" style="width: 100%;border-radius: 5%">
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-success">Search</button>
-					 
-				</div>
-                <br>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4"> 
-					<h4>Search By Scientific Name: </h4>
-					 <select>
-					  <option value="1">number 1</option>
-					  <option value="2">number 2</option>
-					  <option value="3">number 3</option>
-					  <option value="4">number 4</option>
-					</select> 
-				</div>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4"> 
-					<h4>Search By Disease Name: </h4>
-					 <select>
-					  <option value="1">number 1</option>
-					  <option value="2">number 2</option>
-					  <option value="3">number 3</option>
-					  <option value="4">number 4</option>
-					</select> 
-				</div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-				<div class="col-md-4 src"> 
-					<button type="submit" class="btn btn-success">Search</button>
-				</div>
+			<div class="cus-bottom" style="margin-top: 5%"> 
+				<div class="portfolio"> 
+			<div class="port-top text-center"> 
 				
 			</div>
-                </div>
+			<div class="port-bottom"> 
+				<div class="container"> 
+					<div class="img-row1" style="margin-bottom: 20px;">
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
+				
+					</div>
+					<div class="img-row2" style="margin-top: 20px;">
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
+					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+			</div>
 		</div>
 			
 			
-		
-    <br>
-    <br>
-    <hr>
-    <br>
-    <br>
-    <br>
-    
-		
-		<div class="result_table" style="margin-left: 2%;text-align: center">
-            <table>
-            table
-            </table>
-		
-		<br>
-		
-		<button type="submit" class="btn btn-success">Checkout</button>
-		
-		</div>
+</div>
 		
 <!--
 		<div class="signup col-sm-offset-8 col-md-8"> 
@@ -137,7 +97,7 @@
 		
 		
 		
-		
+	</div>	
 		
 		
 		

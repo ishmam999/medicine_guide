@@ -12,16 +12,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Branches</title>
-    <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
+	<title>Order Accepted</title>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="style.css" media="all" />
-	
+	<link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
@@ -52,17 +61,19 @@
 		
 		
 		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-            <h2>Admin Panel - Delivery Branch List</h2>        
-			  
+			<form class="col-md-4 col-sm-offset-4 text-center">
+            <h2>Patient's Panel - Order Accepted</h2>
+			  <div class="form-group center">
+                  <label>Username</label>
+                  <br>
+				  <p>Thanks for Ordering!</p>
+                  <br>
+                  <p>Your Order has been recieved. Our team will deliver it to you as soon as possible.</p>
+				
+			  </div>
                 <br>
-                <br>
-                <label>User Name</label>
-                
-                <br>
-                <br>
-                
-              <!--ekhane table show hobe and kon branch hobe arki-->
+<!--                <button type="submit" class="btn btn-default">Go to the Home Page</button>-->
+                <a href="cushome.php" style="background: #5CB85C;padding: 10px;">Go to the Home Page</a>
 			  
 			  <br>
 			</form> 

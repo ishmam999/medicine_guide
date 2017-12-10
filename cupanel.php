@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -12,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Add Ambulance</title>
+	<title>User Details</title>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
@@ -21,6 +24,16 @@
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
@@ -29,12 +42,12 @@
 	<div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
-				<a href="adminprofile.html"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="#"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="#">Home</a></li>
+						<li><a href="cushome.php">Home</a></li>
 						<li><a href="#">Cart</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -44,6 +57,26 @@
 		
 		
 	</div>
+    <?php
+                        $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+
+                        // Select the database to use
+                        mysqli_select_db($con,'medicineguide');
+
+                        $result = mysqli_query($con,"SELECT * FROM customer where cuName='".$_SESSION["uname"]."';") or die("Failed to Login".mysql_error());
+
+                        $row = mysqli_fetch_array($result);
+
+                        $cuname=$row["cuName"];
+                        $cumobile=$row["cuMobile"];
+                        $cuadd=$row["cuAddress"];
+                        $cuemail=$row["cuEmail"];
+    ?>
 	
 	<div class="main-area"> 
 		
@@ -51,36 +84,34 @@
 		
 		
 		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-            <h2>Admin Panel - Add Ambulence Numbers</h2>        
+			<form class="col-md-4 col-sm-offset-4 text-center">
+            <h2>Patient's Panel - User Details</h2>
 			  <div class="form-group center">
-				<label for="text">Hospital Name:</label>
-				<input type="text" class="form-control" id="hospitalName"  style="width:50%;margin-left: 24%">
+                  <label>Username:</label>
+                  <br>
+                  <?php echo "<label>".$cuname."</label>";
+                  ?>
+                  <br>
+                  <label>Mobile:</label>
+                  <br>
+                  <?php echo "<label>".$cumobile."</label>";
+                  ?>
+                  <br>
+                  <label>Address:</label>
+                  <br>
+                  <?php echo "<label>".$cuadd."</label>";
+                  ?>
+                  <br>
+                  <label>Email:</label>
+				<br>
+                  <?php echo "<label>".$cuemail."</label>";
+                  ?>
+                  <br>
 			  </div>
-			  <div class="form-group">
-				<label for="text">Ambulence Phone:</label>
-				<input type="text" class="form-control" id="ambulencephone" style="width:50%;margin-left: 24%">
-			  </div>
-                <div class="form-group center">
-				    <label for="text">Hospital Address:</label>
-				    <input type="text" class="form-control" id="hospitalAddress" style="width:50%;margin-left: 24%">
-			  </div>
-                <div class="form-group center">
-				    <label>Region:</label>
-                    <br>
-                    <select name="Region">
-                        <option value="Uttara">Uttara</option>
-                        <option value="Banani">Banani</option>
-                        <option value="Mirpur">Mirpur</option>
-                        <option value="Malibag">Malibag</option>
-                    </select>
-			  </div>
-			  
-			  <hr>
-			  <button type="submit" class="btn btn-default" style="width: 37%">Add Pharmacy</button>
-			  <br>
-            <br>
-			  <button type="submit" class="btn btn-default">Check Pharmacy List</button>
+                <br>
+                <button type="submit" class="btn btn-default">Update Info</button>
+                <button type="submit" class="btn btn-default">Change Password</button>
+                
 			  
 			  <br>
 			</form> 

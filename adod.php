@@ -12,16 +12,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Branches</title>
-    <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
+	<title>Order Details</title>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="style.css" media="all" />
-	
+	<link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
@@ -52,17 +61,28 @@
 		
 		
 		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-            <h2>Admin Panel - Delivery Branch List</h2>        
-			  
+			<form class="col-md-4 col-sm-offset-4 text-center">
+            <h2>Admin Panel - Order Details</h2>
+			  <div class="form-group center">
+                  <label>User Name</label>
+                  <br>
+				  <label>Order Details:</label>
+                  <br>
+                  <label>Customer Name:</label>
+                  <br>
+                  <label>Customer Phone:</label>
+                  <br>
+                  <label>Customer Address:</label>
+				
+			  </div>
                 <br>
+                <label>Delivery Items:</label>
                 <br>
-                <label>User Name</label>
-                
-                <br>
-                <br>
-                
-              <!--ekhane table show hobe and kon branch hobe arki-->
+                <!--ekhane table-->
+                <table>
+                table
+                </table>
+              <input type="submit" value="Mark as delivered!" style="background-color: forestgreen;color: white;border-radius: 5%">
 			  
 			  <br>
 			</form> 

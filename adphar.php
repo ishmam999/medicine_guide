@@ -15,16 +15,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
     <link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-    <title>Find Ambulence</title>
-    <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
+    <title>Add Pharmacy</title>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
     <link rel="stylesheet" type="text/css" href="style.css" media="all" />
-
+    <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
     <script type="text/javascript" src="js/modernizr.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    
+    <style type="text/css">
+    html { 
+  background: url(images/13.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+    </style>
 </head>
 
 
@@ -33,12 +42,12 @@
     <div class="header-area">
         <div class="header-top">
             <div class="container">
-                <a href="adminprofile.html"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="adminprofile.html"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
                 <div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="cushome.php">Home</a></li>
+                        <li><a href="#">Home</a></li>
                         <li><a href="#">Cart</a></li>
-                        <li><a href="logout.php">Logout</a></li>
+                        <li><a href="index.html">Logout</a></li>
 
                     </ul>
                 </div>
@@ -56,47 +65,39 @@
 
         <div class="login">
             <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-                <h2>Patient's Panel - Find Ambulence</h2>
-
-                <br>
-                <br>
-                <label>User Name</label>
-
-                <br>
-                <br>
+                <h2>Admin Panel - Add Pharmacy</h2>
                 <div class="form-group center">
-                    <label>Search by Region:</label>
+                    <label for="text">Hospital Name:</label>
+                    <input type="text" class="form-control" id="hospitalName" style="width:50%;margin-left: 24%">
+                </div>
+                <div class="form-group">
+                    <label for="text">Ambulence Phone:</label>
+                    <input type="text" class="form-control" id="ambulencephone" style="width:50%;margin-left: 24%">
+                </div>
+                <div class="form-group center">
+                    <label for="text">Hospital Address:</label>
+                    <input type="text" class="form-control" id="hospitalAddress" style="width:50%;margin-left: 24%">
+                </div>
+                <div class="form-group center">
+                    <label>Region:</label>
                     <br>
-                    <select name="sbr">
-                        <option value="uttara">Uttara</option>
-                        <option value="banani">Banani</option>
+                    <select name="Region">
+                        <option value="Uttara">Uttara</option>
+                        <option value="Banani">Banani</option>
+                        <option value="Mirpur">Mirpur</option>
+                        <option value="Malibag">Malibag</option>
                     </select>
                 </div>
-                <br>
-                <div class="form-group center">
-                    <label>Search by District:</label>
-                    <br>
-                    <select name="sbd">
-                        <option value="idk">I don't Know</option>
-                        
-                    </select>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-default">Search</button>
 
-                <br>
                 <hr>
-                <div class="form-group center">
-                    <input type="text" placeholder="Search Ambulence" class="form-control" id="user" style="width:50%;margin-left: 24%">
+                <button type="submit" class="btn btn-default" style="width: 37%">Add Pharmacy</button>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-default">Check Pharmacy List</button>
 
-                    <button type="submit" class="btn btn-default">Search</button>
-                    <br>
-                    <label>Table: </label>
-                </div>
+                <br>
             </form>
-
             <br>
-
 
         </div>
         <!--
