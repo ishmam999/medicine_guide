@@ -25,25 +25,23 @@
 
 
 <body class="brwsmdcn">
-	<div class="header-area" style="opacity: 0.5;"> 
+	<div class="header-area" style="background: rgba(58, 186, 201, 0.66);"> 
 		<div class="header-top"> 
-            <img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 48%;opacity:1.0;"> <h1 style="text-align: center;color: black">Customer Sign Up</h1>
-<!--
+<!--            <img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 48%;opacity:1.0;"> <h1 style="text-align: center;color: black">Medicine Guide</h1>-->
 			<div class="container"> 
 				<div class="logo col-md-3"> 
 					<img src="images/logo.png" alt="" />
 				</div>
 				<div class="menu col-md-7"> 
 					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Cart</a></li>
-						<li><a href="#">Logout</a></li>
+<!--						<li><a href="cussignup.php" style="color:white;">Customer SignUp</a></li>-->
+						<li><a href="pharsignup.php" style="color:white;">Pharmacy SignUp</a></li>
+						<li><a href="login.php" style="color:white;">Login</a></li>
 						
 					</ul>
 				</div>
 				
 			</div>
--->
 		</div>
 		
 		

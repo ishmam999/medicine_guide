@@ -44,7 +44,7 @@
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Cart</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="index.php">Logout</a></li>
 						
 					</ul>
 				</div>

@@ -38,8 +38,22 @@
 
 
 <body class="cus">
-	<div class="header-area"> 
-		
+	<div class="header-area" style="background: rgba(58, 186, 201, 0.66);"> 
+		<div class="header-top"> 
+<!--            <img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 48%;opacity:1.0;"> <h1 style="text-align: center;color: black">Medicine Guide</h1>-->
+			<div class="container"> 
+				<div class="logo col-md-3"> 
+					<img src="images/logo.png" alt="" />
+				</div>
+				<div class="menu col-md-7"> 
+					<ul class="list-unstyled list-inline pull-right">
+						
+						
+					</ul>
+				</div>
+				
+			</div>
+		</div>
 		
 		
 	</div>
@@ -66,9 +80,7 @@
 				<label for="pwd" style="font-weight: bold;color: #000000;">Password:</label>
 				<input type="password" class="form-control" id="pwd" name="upass" style="width:50%;margin-left: 24%" required>
 			  </div>
-			  <div class="checkbox">
-				<label style="font-weight: bold;color: #000000;"><input type="checkbox"> Remember me</label>
-			  </div>
+			  
 			  
 			  
 			  <button type="submit" class="btn btn-default" style="font-weight: bold;color: #000000;">Login</button>
