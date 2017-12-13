@@ -25,23 +25,18 @@ session_start();
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-    <style type="text/css">
-    html { 
-  background: url(images/13.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }
-    </style>
+    
 </head>
 
 
-<body>
+<body class="brwsmdcn">
+    
 <div class="header-area"> 
 		<div class="header-top"> 
-			<div class="container"> 
-                <a href="cupanel.php"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+			<div class="container">
+                
+                <a href="cupanel.php"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a> <br>
+                <label class="text-center" style="margin-left:51%;"><?php echo $_SESSION["uname"];?></label> 
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="cushome.php">Home</a></li>
@@ -61,7 +56,7 @@ session_start();
 		
 		
 		
-		<div class="login"> 
+		<div class=""> 
 		<div class="br"> 
 			<div class="br-top text-center"> 
 				<div class="container"> 
@@ -69,53 +64,132 @@ session_start();
 				</div>
 			</div>
             
-			<div class="br-bottom row" style="margin-left: 2%;text-align: center">
-                <div class="col-md-3"> 
-					<input type="text" placeholder="search medicine" style="border-radius: 5%">
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-success">Search</button>
-					 
-				</div>
-                
-				<div class="col-md-3"> 
-					<h4>Search By Scientific Name: </h4>
-					 <select>
-					  <option value="1">number 1</option>
-					  <option value="2">number 2</option>
-					  <option value="3">number 3</option>
-					  <option value="4">number 4</option>
-					</select> 
-				</div>
-				<div class="col-md-3"> 
-					<h4>Search By Disease Name: </h4>
-					 <select>
-					  <option value="1">number 1</option>
-					  <option value="2">number 2</option>
-					  <option value="3">number 3</option>
-					  <option value="4">number 4</option>
-					</select> 
-				</div>
-               
-				<div class="col-md-3 src"> 
-					<button type="submit" class="btn btn-success">Search</button>
-				</div>
-				
-			</div>
+			
                 </div>
+                
             
             
             <br>
-    <br>
-    <hr>
-    <br>
-    <br>
-    <br>
+ 
+
+            <?php
+            
+                        
+    ?>
     
 		
 		<div class="result_table" style="margin-left: 2%;text-align: center">
-            <table>
-            table
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <input class="search" style="width:250px;height:35px;background:transparent;border:1px solid black;" type="text" name="search" placeholder="Search..">
+                    <input type="submit" style="background:#56CDF0;border:1px solid #56CDF0;padding:6px 20px;border-radius:5px;" value="Search">
+                </form>
+            <br>
+            <br>
+            
+            
+            
+           
+            
+            
+            
+            
+            
+            
+            <br>
+            <br>
+            <table style="background:white;border:1px solid black;" class="text-center">
+                <thead>
+                    <tr style="padding-left: 10px;">
+                        <th style="border:1px solid black">Name</th>
+                        <th style="border:1px solid black">Scientefic Name</th>
+                        <th style="border:1px solid black">Disease Category</th>
+                        <th style="border:1px solid black">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+                    mysqli_select_db($con,'medicineguide');
+
+                        $resul = mysqli_query($con,"SELECT * FROM medicine;") or die("Failed to fetch".mysql_error());
+                    
+                    while( $row = mysqli_fetch_assoc( $resul) ){
+                                    echo "<tr><td>{$row['medName']}</td><td>{$row['scienteficName']}</td><td>{$row['diseaseCategory']}</td><td>{$row['price']}</td></tr>\n";
+                                        }
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                            $str=$_POST["search"];
+                            $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+
+                        // Select the database to use
+                        mysqli_select_db($con,'medicineguide');
+
+                        $result = mysqli_query($con,"SELECT * FROM medicine where medName='".$str."';") or die("Failed to fetch".mysql_error());
+                        
+                        
+                        //$row = mysqli_fetch_array($result);
+
+                        if( mysqli_num_rows($result)==0){
+                            
+                            $result1 = mysqli_query($con,"SELECT * FROM medicine where scienteficName='".$str."';") or die("Failed to fetch".mysql_error());
+                            if( mysqli_num_rows($result1)==0 ){
+                                $result2 = mysqli_query($con,"SELECT * FROM medicine where diseaseCategory='".$str."';") or die("Failed to fetch".mysql_error());
+                                if( mysqli_num_rows($result2)==0 ){
+                                    echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+                                    }
+                               else{
+                                while( $row = mysqli_fetch_assoc( $result2) ){
+                                    echo "<tr><td>{$row['medName']}</td><td>{$row['scienteficName']}</td><td>{$row['diseaseCategory']}</td><td>{$row['price']}</td></tr>\n";
+                                        }
+                                    } 
+                                }
+                            else{
+                                while( $row = mysqli_fetch_assoc( $result1) ){
+                                    echo "<tr><td>{$row['medName']}</td><td>{$row['scienteficName']}</td><td>{$row['diseaseCategory']}</td><td>{$row['price']}</td></tr>\n";
+                                }
+                            }
+                            
+                            
+                        }
+                            
+                        else{
+                            while( $row = mysqli_fetch_assoc( $result ) ){
+                                    echo "<tr><td>{$row['medName']}</td><td>{$row['scienteficName']}</td><td>{$row['diseaseCategory']}</td><td>{$row['price']}</td></tr>\n";
+                                }
+                            }
+                                    
+                    
+                        }
+            
+                        
+                           
+                        
+                        
+                ?>
+                
+                </tbody>
             </table>
 		
 		<br>

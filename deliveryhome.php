@@ -1,5 +1,20 @@
 <?php
 session_start();
+$con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+
+                        // Select the database to use
+                        mysqli_select_db($con,'medicineguide');
+
+                        $result = mysqli_query($con,"SELECT deRegion FROM delivery where deName='".$_SESSION["uname"]."' and dePass='".$_SESSION["upass"]."';") or die("Failed to Login".mysql_error());
+
+                        $row = mysqli_fetch_array($result);
+
+                        $_SESSION["Region"]=$row["deRegion"];
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -45,7 +60,7 @@ session_start();
                 <a href="#"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="adminhome.php">Home</a></li>
+						<li><a href="#">Home</a></li>
 						<li><a href="logout.php">Logout</a></li>
 						
 					</ul>
@@ -64,7 +79,7 @@ session_start();
 		
 		<div class="login"> 
 			<form class="col-md-4 col-sm-offset-4 text-center">
-            <h2>Admin Panel - Order Details</h2>
+            <h2>Delivery Panel - Order Details</h2>
 			  <table style="background:white;border:1px solid black;" class="text-center">
                 <thead>
                     <tr style="padding-left: 10px;">
@@ -89,7 +104,7 @@ session_start();
                         }
                     mysqli_select_db($con,'medicineguide');
 
-                        $resul = mysqli_query($con,"SELECT * FROM medicineorder;") or die("Failed to fetch".mysql_error());
+                        $resul = mysqli_query($con,"SELECT * FROM medicineorder where orderregion='".$_SESSION["Region"]."';") or die("Failed to fetch".mysql_error());
                     
                     while( $row = mysqli_fetch_assoc( $resul) ){
                                     echo "<tr><td>{$row['orderId']}</td><td>{$row['medicinename']}</td><td>{$row['medquantity']}</td><td>{$row['medprice']}</td><td>{$row['totalprice']}</td><td>{$row['ordercusname']}</td><td>{$row['orderphone']}</td><td>{$row['orderaddress']}</td><td>{$row['orderregion']}</td></tr>\n";

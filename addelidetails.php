@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -12,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
 	<link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-	<title>Details</title>
+	<title>Delivery Guy Details</title>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
@@ -34,17 +37,16 @@
 </head>
 
 
-<body>
+<body class="login">
     
 	<div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
-                <a href="adminprofile.html"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="#"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Cart</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="adminhome.php">Home</a></li>
+						<li><a href="logout.php">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -60,21 +62,96 @@
 		
 		
 		
-		<div class="login"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
-            <h2>Admin Panel - Delivary Details</h2>        
+		<div class="login">
+            
+			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+            <h2>Admin Panel - Delivery Guy Details</h2>
+                <a href="addelivery.php">Add delivery guy</a>
+                <br>
 			  
                 <br>
                 <br>
-                <label>User Name</label>
+                
                 
                 <br>
                 <br>
                 
-              <!--ekhane table show hobe and kon branch hobe arki-->
+              <table style="background:white;border:1px solid black;" class="text-center">
+                <thead>
+                    <tr style="padding-left: 10px;">
+                        <th style="border:1px solid black">ID</th>
+                        <th style="border:1px solid black">Name</th>
+                        <th style="border:1px solid black">Password</th>
+                        <th style="border:1px solid black">Mobile</th>
+                        <th style="border:1px solid black">Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+                    mysqli_select_db($con,'medicineguide');
+
+                        $resul = mysqli_query($con,"SELECT * FROM delivery;") or die("Failed to fetch".mysql_error());
+                    
+                    while( $row = mysqli_fetch_assoc( $resul) ){
+                                    echo "<tr><td>{$row['deId']}</td><td>{$row['deName']}</td><td>{$row['dePass']}</td><td>{$row['deMobile']}</td><td>{$row['deRegion']}</td></tr>\n";
+                                        }
+                    ?>
+                  </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <input type="text" name="del" placeholder="enter id or name">
+                <button type="submit">Delete a delivery guy</button>
 			  
 			  <br>
-			</form> 
+			</form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                $del=$_POST["del"];
+                // Connect to the database
+                    $con=mysqli_connect("localhost","root","");
+                    // Make sure we connected successfully
+                    if(! $con)
+                    {
+                        die('Connection Failed'.mysql_error());
+                    }
+
+                    // Select the database to use
+                    mysqli_select_db($con,'medicineguide');
+
+                    $sql="DELETE FROM delivery where deName='".$del."' or deId='".$del."';";
+
+                    $result= mysqli_query($con,$sql)or die(mysqli_error($con));
+                        if($result){
+		                  
+                           $message = "Successfully deleted!";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                            
+                           
+	                   }
+	                   else
+	                   {
+                          
+                           $message = "Deletion unsuccessful!";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+	                   }
+                    
+                
+            }
+
+                    
+
+
+
+
+                    ?>
 			<br>
 			
 		</div>

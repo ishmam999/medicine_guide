@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
     <link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-    <title>Add Pharmacy List</title>
+    <title>Admin Pharmacy List</title>
     <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
@@ -38,17 +38,16 @@
 </head>
 
 
-<body>
+<body class="login">
 
     <div class="header-area">
         <div class="header-top">
             <div class="container">
-                <a href="adminprofile.html"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="#"><img src="img/admin.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
                 <div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Cart</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li><a href="adminhome.php">Home</a></li>
+						<li><a href="logout.php">Logout</a></li>
 
                     </ul>
                 </div>
@@ -70,75 +69,34 @@
 
                 <br>
                 <br>
-                <label>User Name</label>
+                <table style="background:white;border:1px solid black;" class="text-center">
+                <thead>
+                    <tr style="padding-left: 10px;">
+                        <th style="border:1px solid black">Pharmacy ID</th>
+                        <th style="border:1px solid black">Pharmacy Name</th>
+                        <th style="border:1px solid black">Pharmacy Mobile</th>
+                        <th style="border:1px solid black">Pharmacy Address</th>
+                        <th style="border:1px solid black">Pharmacy Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+                    mysqli_select_db($con,'medicineguide');
 
-                <br>
-                <br>
-                <div class="form-group center">
-                    <label>Search by First Letter:</label>
-                    <br>
-                    <select name="sbfl">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="E">E</option>
-                        <option value="F">F</option>
-                        <option value="G">G</option>
-                        <option value="H">H</option>
-                        <option value="I">I</option>
-                        <option value="J">J</option>
-                        <option value="K">K</option>
-                        <option value="L">L</option>
-                        <option value="M">M</option>
-                        <option value="N">N</option>
-                        <option value="O">O</option>
-                        <option value="P">P</option>
-                        <option value="Q">Q</option>
-                        <option value="R">R</option>
-                        <option value="S">S</option>
-                        <option value="T">T</option>
-                        <option value="U">U</option>
-                        <option value="V">V</option>
-                        <option value="W">W</option>
-                        <option value="X">X</option>
-                        <option value="Y">Y</option>
-                        <option value="Z">Z</option>
-                    </select>
-                </div>
-                <br>
-                <div class="form-group center">
-                    <label>Search by Region:</label>
-                    <br>
-                    <select name="sbsn">
-                        <option value="uttara">Uttara</option>
-                        <option value="banani">Banani</option>
-                        <option value="mirpur">Mirpur</option>
-                    </select>
-                </div>
-                <br>
-                <div class="form-group center">
-                    <label>Search by District:</label>
-                    <br>
-                    <select name="sbd">
-                        <option value="idk">I don't know</option>
-                        <option value="dhaka">Dhaka</option>
-                        <option value="chittagong">Chittagong</option>
-                        
-                    </select>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-default">Search</button>
-
-                <br>
-                <hr>
-                <div class="form-group center">
-                    <input type="text" placeholder="Search Pharmacy" class="form-control" id="user" style="width:50%;margin-left: 24%">
-
-                    <button type="submit" class="btn btn-default">Search</button>
-                    <br>
-                    <label>Table: </label>
-                </div>
+                        $resul = mysqli_query($con,"SELECT * FROM pharmacy;") or die("Failed to fetch".mysql_error());
+                    
+                    while( $row = mysqli_fetch_assoc( $resul) ){
+                                    echo "<tr><td>{$row['pId']}</td><td>{$row['pName']}</td><td>{$row['phMobile']}</td><td>{$row['phAddress']}</td><td>{$row['pRegion']}</td></tr>\n";
+                                        }
+                    ?>
+                  </tbody>
+                </table>
             </form>
 
             <br>

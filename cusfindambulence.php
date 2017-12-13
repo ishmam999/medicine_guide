@@ -29,28 +29,21 @@ session_start();
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     
-    <style type="text/css">
-    html { 
-  background: url(images/13.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }
-    </style>
+    
 </head>
 
 
-<body>
+<body class="cusfamb">
 
-    <div class="header-area">
+    <div class="">
         <div class="header-top">
             <div class="container">
                 <a href="cupanel.php"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <label class="text-center" style="margin-left:51%;"><?php echo $_SESSION["uname"];?></label> 
                 <div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%">
                     <ul class="list-unstyled list-inline pull-right">
                         <li><a href="cushome.php">Home</a></li>
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="cart/index.php">Cart</a></li>
                         <li><a href="logout.php">Logout</a></li>
 
                     </ul>
@@ -67,51 +60,77 @@ session_start();
 
 
 
-        <div class="login">
-            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;">
+        <div class="">
+            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;" method="post" action=cusfindambulence2.php >
                 <h2>Patient's Panel - Find Ambulence</h2>
 
                 <br>
-                <br>
-                <label>User Name</label>
+               
 
                 <br>
                 <br>
                 <div class="form-group center">
-                    <label>Search by Region:</label>
-                    <br>
-                    <select name="sbr">
-                        <option value="uttara">Uttara</option>
-                        <option value="banani">Banani</option>
-                    </select>
-                </div>
-                <br>
+                    
                 <div class="form-group center">
-                    <label>Search by District:</label>
+                    <input style="width:250px;height:35px;background:transparent;border:1px solid black;" type="text" name="search" placeholder="Search Ambulance from region">
+
+                    <button type="submit" style="background:#56CDF0;border:1px solid #56CDF0;padding:6px 20px;border-radius:5px;" class="btn btn-default">Search</button>
                     <br>
-                    <select name="sbd">
-                        <option value="idk">I don't Know</option>
+                </div>
+    
+		
+		<div class="result_table" style="margin-left: 2%;text-align: center">
+            <table style="background:white;border:1px solid black;" class="text-center">
+                <thead>
+                    <tr>
+                        <th style="border:1px solid black">Hospital Name</th>
+                        <th style="border:1px solid black">Region</th>
+                        <th style="border:1px solid black">Hospital Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                      {
+//                          $str1=$_POST["search"];
+                          $con=mysqli_connect("localhost","root","");
+                        // Make sure we connected successfully
+                        if(! $con)
+                        {
+                            die('Connection Failed'.mysql_error());
+                        }
+
+                        // Select the database to use
+                        mysqli_select_db($con,'medicineguide');
+
+                        $result = mysqli_query($con,"SELECT * FROM ambulance;") or die("Failed to fetch".mysql_error());
+
+                        //$row = mysqli_fetch_array($result);
                         
-                    </select>
+                           if( mysqli_num_rows( $result)==0 ){
+                            echo '<tr><td colspan="3">No Rows Returned</td></tr>';
+                        }
+                    
+                        else{
+                        while( $row = mysqli_fetch_assoc( $result ) ){
+                            echo "<tr><td>{$row['hospitalName']}</td><td>{$row['amRegion']}</td><td>{$row['hospitalAddress']}</td></tr>\n";
+                        }
+                    }
+                      }
+                         
+                        
+                        
+                ?>
+                
+                </tbody>
+            </table>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-default">Search</button>
-
-                <br>
-                <hr>
-                <div class="form-group center">
-                    <input type="text" placeholder="Search Ambulence" class="form-control" id="user" style="width:50%;margin-left: 24%">
-
-                    <button type="submit" class="btn btn-default">Search</button>
-                    <br>
-                    <label>Table: </label>
-                </div>
+            </div>
             </form>
 
             <br>
 
 
-        </div>
+        
         <!--
 		<div class="signup col-sm-offset-8 col-md-8"> 
 			<p>Not a registered user. Please Sign Up...</p>
@@ -132,7 +151,7 @@ session_start();
 
 
     </div>
-
+    </div>
 
 </body>
 

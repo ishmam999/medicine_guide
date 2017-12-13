@@ -24,7 +24,7 @@
 </head>
 
 
-<body>
+<body class="brwsmdcn">
 	<div class="header-area" style="opacity: 0.5;"> 
 		<div class="header-top"> 
             <img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 48%;opacity:1.0;"> <h1 style="text-align: center;color: black">Customer Sign Up</h1>
@@ -54,8 +54,8 @@
 		
 		
 		
-		<div class="login1"> 
-			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;margin-top: 4%" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
+		<div class=""> 
+			<form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.9;filter: alpha(opacity=60);text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;margin-top: 4%" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
 			  <div class="form-group center">
 				<label for="user" style="font-weight: bold;color: #000000;">Username:</label>
 				<input type="text" class="form-control" id="user" name="uname" style="width:50%;margin-left: 24%" required>
@@ -70,7 +70,7 @@
 			  </div>
 			  <div class="form-group">
 				<label for="mbl" style="font-weight: bold;color: #000000;">Mobile:</label>
-				<input type="text" class="form-control" id="mbl" name="umobile" style="width:50%;margin-left: 24%" required>
+				<input type="text" class="form-control" id="mbl" pattern="[0-1]{2}[0-9]{9}" name="umobile" style="width:50%;margin-left: 24%" required>
 			  </div>
 			  <div class="form-group">
 				<label for="adrs" style="font-weight: bold;color: #000000;">Address:</label>

@@ -18,7 +18,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico..........................................." />
     <link rel="apple-touch-icon" type="image/x-icon" href="apple-touch-icon.png..............................." />
-    <title>Find Pharmacy</title>
+    <title>Find Ambulence</title>
     <link rel="shortcut icon" href="img/Graphicloads-Medical-Health-Medicine-box-2.ico">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
@@ -33,9 +33,9 @@ session_start();
 </head>
 
 
-<body class="cusfindphar">
+<body class="cusfamb">
 
-    <div class="header-area">
+    <div class="">
         <div class="header-top">
             <div class="container">
                 <a href="cupanel.php"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
@@ -61,40 +61,38 @@ session_start();
 
 
         <div class="">
-            <h2 class="text-center">Patient's Panel - Find Pharmacy</h2>
-                <br>
-<!--                <label style="margin-left:40px;">User Name<br><?php echo $_SESSION["uname"];?></label>-->
+            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+                <h2>Patient's Panel - Find Ambulence</h2>
 
                 <br>
-            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;" method="post" action=cusfindphar2.php >
-                
-                
+               
 
+                <br>
+                <br>
                 <div class="form-group center">
                     
+                <div class="form-group center">
                     <input style="width:250px;height:35px;background:transparent;border:1px solid black;" type="text" name="search" placeholder="Search Pharmacy">
 
                     <button type="submit" style="background:#56CDF0;border:1px solid #56CDF0;padding:6px 20px;border-radius:5px;" class="btn btn-default">Search</button>
                     <br>
-                  </div>
+                </div>
     
 		
 		<div class="result_table" style="margin-left: 2%;text-align: center">
             <table style="background:white;border:1px solid black;" class="text-center">
                 <thead>
                     <tr>
-                        <th style="border:1px solid black">Name</th>
-                        <th style="border:1px solid black">Mobile no.</th>
-                        <th style="border:1px solid black">Address</th>
+                        <th style="border:1px solid black">Hospital Name</th>
                         <th style="border:1px solid black">Region</th>
+                        <th style="border:1px solid black">Hospital Address</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    
-                         {
-//                        $str1=$_POST["search"];
-                        $con=mysqli_connect("localhost","root","");
+                      if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                          $str1=$_POST["search"];
+                          $con=mysqli_connect("localhost","root","");
                         // Make sure we connected successfully
                         if(! $con)
                         {
@@ -103,34 +101,32 @@ session_start();
 
                         // Select the database to use
                         mysqli_select_db($con,'medicineguide');
+
+                        $result = mysqli_query($con,"SELECT * FROM ambulance where amRegion='".$str1."';") or die("Failed to fetch".mysql_error());
+
                         //$row = mysqli_fetch_array($result);
-                         $result = mysqli_query($con,"SELECT * FROM pharmacy;") or die("Failed to fetch".mysql_error());
-                             
-                             if( mysqli_num_rows( $result)==0 ){
-                             $result1 = mysqli_query($con,"SELECT * FROM pharmacy where pName='".$str1."';") or die("Failed to fetch".mysql_error()); 
-                                if( mysqli_num_rows( $result1)==0 ){
-                                    echo '<tr><td colspan="4">No Rows Returned</td></tr>';
-                                }
-                                
-                                else{
-                                    while( $row = mysqli_fetch_assoc( $result1) ){
-                                        echo "<tr><td>{$row['pName']}</td><td>{$row['phMobile']}</td><td>{$row['phAddress']}</td><td>{$row['pRegion']}</td></tr>\n";
-                                }
-                                }
-                             }
+                        
+                           if( mysqli_num_rows( $result)==0 ){
+                            echo '<tr><td colspan="3">No Rows Returned</td></tr>';
+                        }
+                    
                         else{
-                        while( $row = mysqli_fetch_assoc( $result) ){
-                            echo "<tr><td>{$row['pName']}</td><td>{$row['phMobile']}</td><td>{$row['phAddress']}</td><td>{$row['pRegion']}</td></tr>\n";
-                                }
-                            }
-                         } 
-            ?>
+                        while( $row = mysqli_fetch_assoc( $result ) ){
+                            echo "<tr><td>{$row['hospitalName']}</td><td>{$row['amRegion']}</td><td>{$row['hospitalAddress']}</td></tr>\n";
+                        }
+                    }
+                      }
+                         
+                        
+                        
+                ?>
                 
                 </tbody>
             </table>
                 </div>
+            </div>
             </form>
-                
+
             <br>
 
 

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -25,16 +28,15 @@
 </head>
 
 
-<body>
+<body class="cushome">
     <div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
-                <a href="cusprofile.html"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
+                <a href="#"><img src="img/client-1295901_960_720.png" style="max-height: 5%;max-width: 5%;margin-left: 50%;opacity:1.0;"></a>
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="#">Home</a></li>
-						<li><a href="#">Cart</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="index.php">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -48,7 +50,7 @@
 		
 		
 		
-		<div class="login">
+		<div class="">
 		<div class="cushome" > 
 		<div class="chome"> 
 			<div class="cus-top text-center"> 
@@ -64,15 +66,15 @@
 			<div class="port-bottom"> 
 				<div class="container"> 
 					<div class="img-row1" style="margin-bottom: 20px;">
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" style="margin-bottom: 15px;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="adod.php"><img src="1.png" style="max-height: 100%;max-width: 100%;margin-bottom: 15px;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="adsearchuser.php"><img src="2.png" style="max-height: 100%;max-width: 100%;margin-bottom: 15px;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="addelidetails.php"><img src="3.png" style="max-height: 100%;max-width: 100%;margin-bottom: 15px;" alt="" /></a></div>
 				
 					</div>
 					<div class="img-row2" style="margin-top: 20px;">
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
-					<div class="img col-md-4"><a href="#"><img src="2.jpg" alt="" /></a></div>
+					<div class="img col-md-4"><a href="adphar.php"><img src="4.png" style="max-height: 70%;max-width: 100%;margin-bottom: 10%;margin-top:40%" alt="" /></a></div>
+					<div class="img col-md-4"><a href="adminaddambulence.php"><img src="5.png" style="max-height: 100%;max-width: 100%;margin-bottom: 15%;" alt="" /></a></div>
+					<div class="img col-md-4"><a href="adaddmed.php"><img src="6.png" style="max-height: 80%;max-width: 80%;margin-top: 35%;margin-left: 15%;"alt="" /></a></div>
 					
 					</div>
 				</div>

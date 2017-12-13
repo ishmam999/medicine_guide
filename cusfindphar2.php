@@ -66,7 +66,7 @@ session_start();
 <!--                <label style="margin-left:40px;">User Name<br><?php echo $_SESSION["uname"];?></label>-->
 
                 <br>
-            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;" method="post" action=cusfindphar2.php >
+            <form class="col-md-4 col-sm-offset-4 text-center" style="margin: 2%;text-align: center;margin-left: 35%;padding-top: 2%;padding-bottom: 2%;" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
                 
                 
 
@@ -92,8 +92,8 @@ session_start();
                 <tbody>
                     <?php
                     
-                         {
-//                        $str1=$_POST["search"];
+                         if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $str1=$_POST["search"];
                         $con=mysqli_connect("localhost","root","");
                         // Make sure we connected successfully
                         if(! $con)
@@ -104,7 +104,7 @@ session_start();
                         // Select the database to use
                         mysqli_select_db($con,'medicineguide');
                         //$row = mysqli_fetch_array($result);
-                         $result = mysqli_query($con,"SELECT * FROM pharmacy;") or die("Failed to fetch".mysql_error());
+                         $result = mysqli_query($con,"SELECT * FROM pharmacy where pRegion='".$str1."';") or die("Failed to fetch".mysql_error());
                              
                              if( mysqli_num_rows( $result)==0 ){
                              $result1 = mysqli_query($con,"SELECT * FROM pharmacy where pName='".$str1."';") or die("Failed to fetch".mysql_error()); 

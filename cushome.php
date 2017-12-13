@@ -28,7 +28,7 @@ session_start();
 </head>
 
 
-<body class="cus">
+<body class="cushome">
     <div class="header-area"> 
 		<div class="header-top"> 
 			<div class="container"> 
@@ -36,8 +36,8 @@ session_start();
 				<div class="menu col-md-5" style="margin-left: 20%;margin-top: 2%"> 
 					<ul class="list-unstyled list-inline pull-right">
 						<li><a href="#">Home</a></li>
-						<li><a href="#">Cart</a></li>
-						<li><a href="logout.php">Logout</a></li>
+						<li><a href="cart/index.php">Cart</a></li>
+						<li><a href="index.php">Logout</a></li>
 						
 					</ul>
 				</div>
@@ -63,7 +63,7 @@ session_start();
 				<div class="container" style="padding-bottom:150px;"> 
 					<div class="img-row1">
 					<div class="img col-md-3" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.9;filter: alpha(opacity=60);text-align: center;margin-left: 5%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;margin-top: 4%">
-					<a href="browsemdcn.php"><img src="img/Creative-Tail-medicine.svg.png" alt="" style="max-height: 35%;max-width: 35%"></a> 
+					<a href="cart/index.php"><img src="img/Creative-Tail-medicine.svg.png" alt="" style="max-height: 35%;max-width: 35%"></a> 
 					<br>
 					<br>
                     <label style="margin-left: 2%">Browse Medicine</label>
