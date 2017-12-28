@@ -206,7 +206,7 @@
 
 		<script>
 		function myFunction() {
-			alert("Congratulations !! Your order has been placed. We will deliver your medice very soon. hehe");
+			alert("Congratulations !! Your order has been placed. We will deliver your medice very soon. ");
 		}
 		</script>
 		
